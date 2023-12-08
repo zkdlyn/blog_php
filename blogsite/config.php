@@ -1,12 +1,12 @@
 <?php
 
 $conn = mysqli_connect('localhost','root','','blog_db');
-$sequel =  "SELECT * FROM data";
+$sequel =  "SELECT * FROM data ORDER BY postID DESC";
 $query = mysqli_query($conn, $sequel);
 // create
 if(isset($_REQUEST['new_post'])){
-    $title = $_REQUEST['title'];
-    $content = $_REQUEST['content'];
+    $title = mysqli_real_escape_string($conn, $_REQUEST['title']);
+    $content = mysqli_real_escape_string($conn,$_REQUEST['content']);
 
     $select = " INSERT INTO data(title, content) VALUES('$title', '$content')";
     mysqli_query($conn, $select);
@@ -26,7 +26,7 @@ if (isset($_REQUEST["postID"])){
 if (isset($_REQUEST["delete"])){
     $postID = $_REQUEST["postID"];
     $select = " DELETE FROM data WHERE postID = $postID";
-    mysqli_query($conn, $select);
+    $query = mysqli_query($conn, $select);
 
     header("Location: user_page.php");
     exit();
