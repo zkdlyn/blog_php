@@ -81,7 +81,7 @@ if(!isset($_SESSION['user_name'])){
          echo '<a href="view.php" class="btn">Read More</a>';
          if($userLoggedin){
             echo '<a href="edit.php" class="btn">Edit</a>';
-            echo '<a href="delete.php" class="btn">Delete</a>';
+            echo '<a href="delete.php" class="btn">Delete</a>'; // baka di na need i link to sa php file ulit mag anek lang ng sql code dito
       }}
   } else {
       $error[] = "no blog posts found.";
