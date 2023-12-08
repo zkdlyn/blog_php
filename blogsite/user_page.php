@@ -4,7 +4,7 @@
 
 session_start();
 $userLoggedin =TRUE;
-// ito yung nagbblock sa access sa viewing ng page na to unless naka login
+// checking kung naka login
 if(!isset($_SESSION['user_name'])){
    $userLoggedin = FALSE;
 }
