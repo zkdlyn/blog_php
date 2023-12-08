@@ -3,10 +3,10 @@
 @include 'config.php';
 
 session_start();
+$userLoggedin =TRUE;
 // ito yung nagbblock sa access sa viewing ng page na to unless naka login
-// tho mukhang papalitan to para pwede maview pero wala yung editing ng posts
 if(!isset($_SESSION['user_name'])){
-   header('location:login_form.php');
+   $userLoggedin = FALSE;
 }
 
 ?>
@@ -29,9 +29,23 @@ if(!isset($_SESSION['user_name'])){
    display: flex;
    flex-wrap: wrap;
 }
+
+.blog-posts .btn{
+   display: inline-block;
+   padding:5px 10px;
+   border: solid #333 1px;
+   font-size: 12px;
+   color:#333;
+   margin:0 5px;
+}
+.btn:hover{
+   color: crimson;
+}
 </style>
 <body>
+<?php
 
+?>
  <!-- dapat eto mag show lng pag naka login
       pwd mo palitan na lang to eme emeng hello lang naman yan 
       tas yung sequence ng posts pa add sa baba ganon
@@ -48,23 +62,29 @@ if(!isset($_SESSION['user_name'])){
 </div>
 <div class="container">
    <div class="content">
-      <h1>welcome, <span><?php echo $_SESSION['user_name'] ?></span></h1>
-
-      <a href="create_post.php" class="btn">new post</a>
-      <a href="logout.php" class="btn">logout</a>
+      <?php if(!isset($userLoggedin) || empty($userLoggedin)){ // pag nde naka login login lng kita tas else may welcome new post and login
+         echo '<a href="login_form.php" class="btn">login</a>';
+      }else{?>
+         <h1>welcome, <span><?php echo $_SESSION["user_name"] ?></span></h1>
+         <a href="create_post.php" class="btn">new post</a>
+         <a href="logout.php" class="btn">logout</a>
+      <?php }?>
    </div>
-   
 </div>
 <div class="blog-posts">
 <?php 
    if(mysqli_num_rows($query) > 0){
       while ($row = mysqli_fetch_array($query)) {
-          echo "<h2>" . $row['title'] . "</h2>";
-          echo "<p>" . $row['content'] . "</p>";
-          echo "<hr>";
-      }
+         echo "<h2>" . $row['title'] . "</h2>";
+         echo "<p>" . $row['content'] . "</p>";
+         echo "<hr>";
+         echo '<a href="view.php" class="btn">Read More</a>';
+         if($userLoggedin){
+            echo '<a href="edit.php" class="btn">Edit</a>';
+            echo '<a href="delete.php" class="btn">Delete</a>';
+      }}
   } else {
-      echo "No blog posts found.";
+      $error[] = "no blog posts found.";
   }
 ?>
    
