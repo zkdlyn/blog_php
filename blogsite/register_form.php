@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
    $cpass = md5($_POST['cpassword']);
    
 
-   $select = " SELECT * FROM user_forms WHERE email = '$email' && password = '$pass' ";
+   $select = " SELECT * FROM users WHERE email = '$email' && password = '$pass' ";
 
    $result = mysqli_query($conn, $select);
 
@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
       if($pass != $cpass){
          $error[] = 'password not matched!';
       }else{
-         $insert = "INSERT INTO user_forms(name, email, password) VALUES('$name','$email','$pass')";
+         $insert = "INSERT INTO users(name, email, password) VALUES('$name','$email','$pass')";
          mysqli_query($conn, $insert);
          header('location:login_form.php');
       }

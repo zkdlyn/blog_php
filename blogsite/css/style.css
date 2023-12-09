@@ -154,6 +154,7 @@
    border-radius: 5px;
    font-size: 20px;
    padding:10px;
+   z-index: 3000;
 }
 
 .alert-container{
@@ -162,10 +163,12 @@
    justify-content: center;
    padding:20px;
    padding-bottom: 60px;
+   
 }
 
 #edit_textarea, #create_textarea{
    resize: none;
+   white-space: pre-wrap;
 }
 
 .header{

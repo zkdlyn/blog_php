@@ -9,7 +9,7 @@ if(!isset($_SESSION['user_name'])){
 
 if (isset($_REQUEST["postID"])) {
     $postID = $_REQUEST["postID"];
-    $select = "SELECT * FROM  data WHERE postID = $postID";
+    $select = "SELECT * FROM  blog_entry WHERE postID = $postID";
     $result = mysqli_fetch_array(mysqli_query($conn, $select));
 }
 ?>
@@ -86,6 +86,7 @@ body{
     <!-- nav bar -->
 <div class="header">
    <ul class="navbar">
+        <li><a href="user_page.php" class="btn">home</a></li>
       <?php if(!isset($userLoggedin) || empty($userLoggedin)){?>
       <li><a href="login_form.php" class="btn">login</a></li>
          <?php }else{ ?>
@@ -103,15 +104,18 @@ body{
                     echo '<span class="error-msg">'.$error.'</span>';
                 };
             };
+            $userTitleOutput = nl2br($result['title']);
+            $userContentOutput = nl2br($result['content']);
             ?>
             <input type="hidden" name="postID" value="<?php echo $result['postID']; ?>">
             <div type="text" name="title" id="" placeholder="enter title" 
             style="
             width:100%; font-size: 1.5em; margin-top: 0.83em; margin-bottom: 0.83em; margin-left: 0;
-            margin-right: 0; font-weight: bold;" maxlength="50"><?php echo $result['title']; ?></div><br>
-            <div name="content" cols="30" rows="30"><?php echo $result['content']; ?></div><br>
+            margin-right: 0; font-weight: bold;" maxlength="50"><?php echo $userTitleOutput; ?></div><br>
+            <div name="content" cols="30" rows="30"><?php echo $userContentOutput; ?></div><br>
             <a href="user_page.php" class="form-btn">back</a>
         </form>
     </div>
+    <a href="#"><button class="topbtn" title="back to top">^</button></a>
 </body>
 </html>

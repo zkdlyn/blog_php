@@ -5,7 +5,7 @@ session_start();
 
 if (isset($_REQUEST["postID"])) {
     $postID = $_REQUEST["postID"];
-    $select = "SELECT * FROM data WHERE postID = $postID";
+    $select = "SELECT * FROM blog_entry WHERE postID = $postID";
     
     $query = mysqli_query($conn, $select);
 
@@ -13,7 +13,7 @@ if (isset($_REQUEST["postID"])) {
         $result = mysqli_fetch_array($query);
         if ($result) {
             // delete
-            $delete_post_query = "DELETE FROM data WHERE postID=$postID LIMIT 1";
+            $delete_post_query = "DELETE FROM blog_entry WHERE postID=$postID LIMIT 1";
             mysqli_query($conn, $delete_post_query);
         }
     }

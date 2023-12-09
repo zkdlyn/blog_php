@@ -11,7 +11,7 @@ if(!isset($_SESSION['user_name'])){
 }
 if (isset($_REQUEST["postID"])) {
     $postID = $_REQUEST["postID"];
-    $select = "SELECT * FROM  data WHERE postID = $postID";
+    $select = "SELECT * FROM  blog_entry WHERE postID = $postID";
     $result = mysqli_fetch_array(mysqli_query($conn, $select));
 }
 
@@ -21,7 +21,7 @@ if(isset($_POST['update_post'])){
     
     $postID = $_POST['postID'];
 
-    $updateQuery = "UPDATE data SET title='$title', content='$content' WHERE postID=$postID";
+    $updateQuery = "UPDATE blog_entry SET title='$title', content='$content' WHERE postID=$postID";
     mysqli_query($conn, $updateQuery);
 
     header("Location: user_page.php?post=edited");

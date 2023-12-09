@@ -58,6 +58,7 @@ body{
 }
 a:hover{
    color: crimson;
+   text-decoration: underline;
 }
 
 .blog-posts .controls{
@@ -101,6 +102,7 @@ hr.solid {
 <!-- nav bar -->
 <div class="header">
    <ul class="navbar">
+      <li><a href="user_page.php" class="btn">home</a></li>
       <?php if(!isset($userLoggedin) || empty($userLoggedin)){?>
       <li><a href="login_form.php" class="btn">login</a></li>
          <?php }else{ ?>
@@ -127,9 +129,11 @@ hr.solid {
          <div class="post">
          <?php
          // display 250 characters onli
-         $preview = substr($row['content'], 0, 250);
-         echo "<h2>" . $row['title'] . "</h2>";
-         echo "<p>" . $preview . "</p>";
+         $userTitleOutput = nl2br($row['title']);
+         $userContentOutput = nl2br($row['content']);
+         $preview = substr($userContentOutput, 0, 250);
+         echo "<h2>" . $userTitleOutput . "</h2>";
+         echo "<p>" . $preview . "...</p>";
          echo "<hr>";
          echo '<a href="view.php?postID=' . $row['postID'] . '" class="">Read More</a>';?>
          <?php if($userLoggedin){ ?>
@@ -149,7 +153,7 @@ hr.solid {
    ?>
 </div>
 
-<a href="#"><button class="topbtn" title="back to top"><i class='bx bx-chevron-up'></i></button></a>
+<a href="#"><button class="topbtn" title="back to top">^</button></a>
 <!--  JS Link -->
 <script src="Script.js"></script>
 <script>
