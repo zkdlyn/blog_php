@@ -1,7 +1,14 @@
 <?php
 @include 'config.php';
 session_start();
-
+// checking kung naka login
+$userLoggedin = TRUE;
+if(!isset($_SESSION['user_name'])){
+    $userLoggedin = FALSE;
+ }
+ if(!isset($_SESSION['user_name'])){
+    header('Location: login_form.php');
+}
 if (isset($_REQUEST["postID"])) {
     $postID = $_REQUEST["postID"];
     $select = "SELECT * FROM  data WHERE postID = $postID";
@@ -47,7 +54,10 @@ body{
    margin:0 5px;
    text-transform: capitalize;
 }
-
+.nav{
+   display: flex;
+   flex-wrap: wrap;
+}
 .container .btn:hover{
    background: crimson;
 }
@@ -91,10 +101,18 @@ body{
 /* mema p lng tlg design neto */
 </style>
 <body>
-    <div class="container">
-        <a href="user_page.php" class="btn">home</a>
-        <a href="logout.php" class="btn">logout</a>
-    </div>
+<!-- nav bar -->
+<div class="header">
+   <ul class="navbar">
+   <li><a href="user_page.php">home</a></li>
+      <?php if(!isset($userLoggedin) || empty($userLoggedin)){?>
+      <li><a href="login_form.php" class="btn">login</a></li>
+         <?php }else{ ?>
+      <li><a href="create_post.php">new post</a></li>
+      <li><a href="logout.php" >logout</a></li>
+      <?php } ?>
+   </ul>
+</div>
     <div class="new-post-container">
         <h3>edit your post</h3>
         <form action="" method="post">
