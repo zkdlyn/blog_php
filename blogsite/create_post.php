@@ -1,6 +1,14 @@
 <?php
 @include 'config.php';
 session_start();
+$userLoggedin =TRUE;
+// checking kung naka login
+if(!isset($_SESSION['user_name'])){
+   $userLoggedin = FALSE;
+}
+if(!isset($_SESSION['user_name'])){
+    header('Location: login_form.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,20 +44,19 @@ body{
     background: #333;
     min-height: 100vh;
     display: block;
+    position: relative;
     justify-content: center;
-    margin: 0 auto;
+    margin: 28px 0px 0px 0px;
     padding: 0 10% 10% 10%;
 }
 
 .new-post-container form{
    padding:20px;
    border-radius: 5px;
-   box-shadow: 0 5px 10px rgba(0,0,0,.1);
    background: #fff;
 }
 .new-post-container h3{
    font-size: 30px;
-   text-transform: uppercase;
    margin-bottom: 10px;
    padding-top: 10px;
    color:white;
@@ -72,10 +79,20 @@ body{
 /* mema p lng tlg design neto */
 </style>
 <body>
-<div class="container">
-    <a href="user_page.php" class="btn">home</a>
-    <a href="logout.php" class="btn">logout</a>
+
+<!-- nav bar -->
+<div class="header">
+   <ul class="navbar">
+        <li><a href="user_page.php">home</a></li>
+      <?php if(!isset($userLoggedin) || empty($userLoggedin)){?>
+      <li><a href="login_form.php" class="btn">login</a></li>
+         <?php }else{ ?>
+      <li><a href="create_post.php">new post</a></li>
+      <li><a href="logout.php" >logout</a></li>
+      <?php } ?>
+   </ul>
 </div>
+
 <div class="new-post-container">
     <h3>add a new post</h3>
     <form action="" method="post">
@@ -86,12 +103,13 @@ body{
             };
         };
         ?>
-        <input type="text" name="title" id="" placeholder="enter title" style="width:100%" maxlength="50"><br>
-        <textarea name="content" cols="30" rows="30" placeholder="write a blog entry"></textarea><br>
+        <input type="text" required name="title" id="" placeholder="enter title" style="
+        width:100%; font-size: 1.5em; margin-top: 0.83em; margin-bottom: 0.83em; margin-left: 0;
+        margin-right: 0; font-weight: bold;" maxlength="50"><br>
+        <textarea required name="content" id="create_textarea" cols="30" rows="20" placeholder="write a blog entry"></textarea><br>
         <button name="new_post" class="form-btn">save post</button>
         <a href="user_page.php" class="form-btn">cancel</a>
     </form>
-    
 </div>
     
 </body>

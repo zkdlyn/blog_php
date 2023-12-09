@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durungawan</title>
+  <link href="style_durungawan.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- Slick -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+  
+  <!-- icons -->
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<!-- INDEX HTML MAIN HTML FILE -->
+<!--
+  yung icons dito galing: https://boxicons.com/ or https://remixicon.com/
+  pagka ggamitin yung icon click lang tas icopy as font, ganto itsura ng script:
+  <i class='bx bxs-balloon'></i>
+  ittreat siya as text kaya pag i eedit sa css like yung size yung font-size ang i aadjust 
+
+-->
+
+<body>
+
+  <header class="header">
+    <div class="bx bx-menu" id="menu-icon">
+      </div>
+    <a href="index_durungawan.html" class="logo"><i class='bx bxs-bowl-hot'></i><span> Durungawan</span></a>
+    <ul class="navbar">
+      <li>
+        <a class="active" href="#home">Home</a>
+      </li>
+      <li>
+        <a class="active" href="our-story.html">Our Story</a>
+      </li>
+      <li>
+        <a class="active" href="featured.html">Featured</a>
+      </li>
+      <li>
+        <a class="active" href="menu.html">Menu</a>
+      </li>
+      <li>
+        <a class="active" href="team.html">Team</a>
+      </li>
+    </ul>
+    <div class="main">
+      <a href="book-now.html"><i class="ri-bookmark-fill"></i>Book Now</a>
+    </div>
+  </header>
+
+
+  <section class="home" id="home">
+    <div class="content">
+      <h3>Durungawan</h3>
+      <span>classic filipino dishes rediscovered</span>
+      <p>Welcome to Durungawan, where we reinvent the traditional Filipino cuisine using the principles of molecular gastronomy, which explores the scientific and chemical properties of food to create unexpected textures, flavors, and presentations, providing our guests with a unique dining experience.</p>
+      <br>
+      <a href="book-now.html" class="btn">Order Here</a>
+      
+    </div>
+  </section>
+
+  <style>
+    img {
+      float: right;
+    }
+    </style>
+
+  <section class="our-story" id="our-story">
+    <div class="our-story-text">
+      <h1>Our Story</h1>
+      <br>
+      <p>Durungawan is the creation of the world-renowned Filipino chef, Margot Santos. Serving a new style of putting food on your palate. She believes that food is not just fuel for the body, but an experience for the senses.</p>
+      <br>
+      <p>The restaurant is an organic touch of Molecular Gastronomy, restaurant's signature with the Filipino culture. The interplay of textures, displat and color brings life and a vibrance that embraces the restaurant’s place.</p></span>
+      <br><br>
+      <a href="our-story.html" class="btn">READ MORE</a>
+    </div>
+    <div class="our-img">
+      <img src="https://nolisoli.ph/wp-content/uploads/2019/11/Gallery-by-Chele-recolor-2.jpg">
+    </div>
+  </section>
+
+  <section class="featured" id="featured">
+      <div class="text-slider-wrapper">
+            <div class="text-slider">
+                  <div class="text-slide"><h1>Local tastes <br> reimagined.</h1></div>
+                  <div class="text-slide"><h1>The perfect mix of <br> old & new.</h1></div>
+                  <div class="text-slide"><h1>A journey over borders <br> & generations.</h1></div>
+                  <div class="text-slide"><h1>You are the <br> witness.</h1></div>
+                  <div class="text-slide"><h1>To be on the <br> forefront.</h1></div>
+            </div>
+      </div>
+
+      <div class="slider-control">
+            <div class="prev"><button type="button"><ion-icon name="arrow-back"></ion-icon></button></div>
+            <div class="next"><button type="button"><ion-icon name="arrow-forward"></ion-icon></button></div>
+      </div>
+
+      <div class="blocks">
+            <div class="block-1"></div>
+            <div class="block-2"></div>
+            <div class="block-3"></div>
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="image-slider">
+            <div class="image-slide" id="one" style="background: url(durungawan_images/kinilaw.jpg) no-repeat 50% 50%; background-size: cover;"></div>
+            <div class="image-slide" id="two" style="background: url(durungawan_images/tart.jpg) no-repeat 50% 50%; background-size: cover;"></div>
+            <div class="image-slide" id="three" style="background: url(durungawan_images/tablea.jpg) no-repeat 50% 50%; background-size: cover;"></div>
+            <div class="image-slide" id="four" style="background: url(durungawan_images/ewan.jpg) no-repeat 50% 50%; background-size: cover;"></div>
+            <div class="image-slide" id="five" style="background: url(durungawan_images/orange.jpg) no-repeat 50% 50%; background-size: cover;"></div>
+      </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+  <script src="slick.js"></script>
+  
+  <!-- slider script -->
+  <script>
+
+  var sickPrimary = {
+        autoplay: true,
+        autoplaySpeed: 2400,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        speed: 1800,
+        cssEase: 'cubic-bezier(.84, 0, .08, .99)',
+        asNavFor: '.text-slider',
+        centerMode: true,
+        prevArrow: $('.prev'),
+        nextArrow: $('.next')
+  }
+
+  var sickSecondary = {
+        autoplay: true,
+        autoplaySpeed: 2400,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 1800,
+        cssEase: 'cubic-bezier(.84, 0, .08, .99)',
+        asNavFor: '.image-slider',
+        prevArrow: $('.prev'),
+        nextArrow: $('.next')
+  }
+
+  $('.image-slider').slick(sickPrimary);
+  $('.text-slider').slick(sickSecondary);
+
+  </script>
+
+  <section class="home-menu-book" id="home-menu-book">
+
+
+    <div class="our-img">
+      <img src="durungawan_images/tart.jpg">
+    </div>
+
+    <div class="home-menu-text">
+      <h1>Menu</h1>
+      <p>Durungawan is a progression of rare and beautiful ingredients where texture, flavour and harmony is paramount. <br><br>
+      Inspired by nature, Chef Margot's creative process begins in working closely with the farmers, fishermen, producers and artisans who cultivate produce exclusively for Durungawan. For each dish, the growth of every element and the selection of every ceramic piece are carefully considered and crafted for its role in the dining experience.
+      <br>
+      <a href="menu.html" class="btn">SEE OUR MENU</a>
+      </p>
+      <br><br>
+    </div>
+
+
+   <!-- <div class="right">
+      <h3>Reservations</h3>
+      <p>We are open for reservations. Whether you have a special occasion to celebrate or a simple night out, we got you covered. Secure a table or reserve a function room at your preferred date and time now. 
+      <br><br>
+      Contact us or use our reservation form and we'll be happy to assist you!
+      </p>
+        <br><br><br>
+        <a href="book-now.html" class="btn"> RESERVE NOW</a>
+    </div> 
+  -->
+  </section>
+
+
+  
+  <section class="homeslider1" style="text-align: center;">
+      <div class="homeslidertext1">
+        <h1> Reviews from our Dine-In Critics </h1>
+      </div>      
+  
+        <button class="pre-btn"><img src="durungawan_images/right.png" alt=""></button>
+        <button class="nxt-btn"><img src="durungawan_images/right.png" alt=""></button>
+        <div class="review-container">
+          <div class="review-card">
+                <div class="review-image">
+                  <img src="durungawan_images/Person-Male-1.png" class="product-thumb" alt="">
+                </div>
+              
+                <div class="review-text"><br>
+                  <h2 class="review-name">Juan </h2><br>
+                  <p class="review-text-description">"The variety of regional dishes at Durungawan was impressive. The freshness and quality of the ingredients were evident in every bite. I especially enjoyed the sinigang soup, which was perfectly balanced."</p>
+                </div>  
+          </div>
+            
+              <!-- 2nd card -->
+          <div class="review-card">
+                <div class="review-image">
+                  <img src="durungawan_images/Person-Women-1_1.png" class="product-thumb" alt="">
+                </div>
+              
+                <div class="review-text"><br>
+                  <h2 class="review-name"> Maria </h2><br>
+                  <p class="review-text-description">"Durungawan's Adobo as a plated dessert was a flavor explosion in my mouth. The creative spin on a traditional dish was a pleasant surprise. I highly recommend this restaurant for those looking for a unique and delightful culinary experience."</p>
+                </div>  
+          </div>
+  
+              <!-- 3rd card -->
+  
+          <div class="review-card">
+                <div class="review-image">
+                  <img src="durungawan_images/Person-Male-2.png" class="product-thumb" alt="">
+                </div>
+              
+                <div class="review-text"><br>
+                  <h2 class="review-name"> Miguel </h2><br>
+                  <p class="review-text-description">"Durungawan's use of molecular gastronomy in their dishes was truly impressive. The attention to detail in every dish was impeccable. I highly recommend trying the Sisig with a twist, which was a delightful explosion of flavors."
+                  </p>
+                </div>  
+          </div>
+              <!-- 4th card -->
+  
+          <div class="review-card">
+                <div class="review-image">
+                  <img src="durungawan_images/Person-Women-2.png" class="product-thumb" alt="">
+                </div>
+              
+                <div class="review-text"><br>
+                  <h2 class="review-name"> Sofia  </h2><br>
+                  <p class="review-text-description">"Durungawan's approach to Filipino cuisine is exciting. The use of molecular gastronomy in their dishes elevates traditional flavors to a whole new level. I highly recommend trying the Lechon with a twist, which was absolutely delicious."</p>
+                </div>  
+          </div>
+  
+              <!-- 5th card -->
+  
+          <div class="review-card">
+                <div class="review-image">
+                  <img src="durungawan_images/Person-Women-3.png" class="product-thumb" alt="">
+                </div>
+              
+                <div class="review-text"><br>
+                  <h2 class="review-name"> Anna   </h2><br>
+                  <p class="review-text-description">"Durungawan's creativity and ingenuity in their menu are truly impressive. I loved the playful twist on the Adobo, which was a perfect combination of sweet and savory. The service was also excellent, making for a wonderful dining experience."</p>
+                </div>  
+          </div>
+  
+  
+              <!-- 5th card -->
+  
+              <div class="review-card">
+                <div class="review-image">
+                  <img src="durungawan_images/Person-Women-4.png" class="product-thumb" alt="">
+                </div>
+              
+                <div class="review-text"><br>
+                  <h2 class="review-name"> Samantha </h2><br>
+                  <p class="review-text-description">"Durungawan's menu is a delightful fusion of traditional Filipino cuisine and molecular gastronomy. The result is an exciting and delicious culinary experience. The flavors and textures in the Sinigang with a twist were amazing. Highly recommended!"</p>
+                </div>  
+              </div>
+  
+          </div>
+    
+    <script>
+      const productContainers = [...document.querySelectorAll('.review-container')];
+      const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+      const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+      productContainers.forEach((item, i) => {
+        let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+
+        nxtBtn[i].addEventListener('click', () => {
+        item.scrollLeft += containerWidth+10;
+    })
+
+        preBtn[i].addEventListener('click', () => {
+        item.scrollLeft -= containerWidth+10;
+    })
+})
+    </script>
+  </section>
+  
+  <section class="footer" id="footer">
+    <span class="footlogo">Durungawan</span>
+    
+    
+    <div class="footer-container">
+      
+      <div>
+        <h3>Navigation Links</h3>
+        <a href="our-story.html" class="footer-link">Our Story</a><br>
+        <a href="featured.html" class="footer-link">Featured</a><br>
+        <a href="menu.html" class="footer-link">Menu</a><br>
+        <a href="team.html" class="footer-link">Team</a><br>
+        <a href="book-now.html" class="footer-link">Reservations</a><br>
+
+      </div>
+      <div>
+        
+        <h3>Get the latest news and offers from us</h3>
+        <input type="email" placeholder="Enter your email">
+        <ul>
+          <li><a href="" class="bx bxl-twitter"></a></li>
+          <li><a href="" class="bx bxl-instagram"></a></li>
+          <li><a href="" class="bx bxl-facebook-circle"></a></li>
+          <li><a href="" class="bx bxl-linkedin-square"></a></li>
+        </ul>
+        
+        
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <span>+63 995 9616683</span>
+        <span>859 1234</span>
+        <span><a href="mailto:durungawan@gmail.com">durungawan@gmail.com</a></span>
+        <span>durungawan-restaurants.com.ph</span>
+      </div>
+    </div>
+    <br>
+    <p>&copy;2023 Reserved by Syntax Explorer</p>
+  </section>
+
+
+<!-- scroll to top -->
+<a href="#"><button class="topbtn" title="Back to Top"><i class="fa-solid fas fa-angle-up"></i></button></a>
+
+
+<script type="text/javascript" src="script_durungawan.js"></script>
+
+</body>
+</html>
+ 

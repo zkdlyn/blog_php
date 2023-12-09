@@ -8,6 +8,19 @@
    text-decoration: none;
 }
 
+.topbtn{
+	z-index: 20;
+	position: fixed;
+	right: 2%;
+	bottom: 5%;
+	width: 40px;
+	height: 30px;
+	background-color: crimson;
+	color: white;
+	cursor: pointer;
+	border: none;
+}
+
 .container{
    display: flex;
    align-items: center;
@@ -25,6 +38,7 @@
    color:#333;
 }
 
+
 .container .content h3 span{
    background: crimson;
    color:#fff;
@@ -35,6 +49,7 @@
 .container .content h1{
    font-size: 50px;
    color:#333;
+   
 }
 
 .container .content h1 span{
@@ -53,7 +68,6 @@
    background: #333;
    color:#fff;
    margin:0 5px;
-   text-transform: capitalize;
 }
 
 .container .content .btn:hover{
@@ -67,13 +81,12 @@
    justify-content: center;
    padding:20px;
    padding-bottom: 60px;
-   background: #eee;
+   background: #333;
 }
 
 .form-container form{
    padding:20px;
    border-radius: 5px;
-   box-shadow: 0 5px 10px rgba(0,0,0,.1);
    background: #fff;
    text-align: center;
    width: 500px;
@@ -149,4 +162,40 @@
    justify-content: center;
    padding:20px;
    padding-bottom: 60px;
+}
+
+#edit_textarea, #create_textarea{
+   resize: none;
+}
+
+.header{
+   position: fixed;
+	width: 100%;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: transparent;
+	padding: 28px 12%;
+	transition: all 0.60s ease;
+   background-color: #333;
+}
+.navbar{
+   display: flex;
+   list-style: none;
+}
+
+.navbar a{
+	color: #fff;
+	font-size: 17px;
+	font-weight: 800;
+	padding: 5px 0;
+	margin: 0px 30px;
+	transition: all .50s ease
+}
+.navbar a:hover{
+	color: crimson;
+	transition: 0.3s;
 }

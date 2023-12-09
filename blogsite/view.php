@@ -1,27 +1,18 @@
 <?php
 @include 'config.php';
 session_start();
+$userLoggedin =TRUE;
+// checking kung naka login
+if(!isset($_SESSION['user_name'])){
+   $userLoggedin = FALSE;
+}
 
 if (isset($_REQUEST["postID"])) {
     $postID = $_REQUEST["postID"];
     $select = "SELECT * FROM  data WHERE postID = $postID";
     $result = mysqli_fetch_array(mysqli_query($conn, $select));
 }
-
-if(isset($_POST['update_post'])){
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $content = mysqli_real_escape_string($conn, $_POST['content']);
-    
-    $postID = $_POST['postID'];
-
-    $updateQuery = "UPDATE data SET title='$title', content='$content' WHERE postID=$postID";
-    mysqli_query($conn, $updateQuery);
-
-    header("Location: user_page.php?post=edited");
-    exit();
-}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,24 +47,25 @@ body{
     background: #333;
     min-height: 100vh;
     display: block;
-    position: relative;
     justify-content: center;
-    margin: 28px 0px 0px 0px;
+    margin: 0 auto;
     padding: 0 10% 10% 10%;
 }
 
 .new-post-container form{
    padding:20px;
    border-radius: 5px;
+   box-shadow: 0 5px 10px rgba(0,0,0,.1);
    background: #fff;
 }
 .new-post-container h3{
    font-size: 30px;
+   text-transform: uppercase;
    margin-bottom: 10px;
    padding-top: 10px;
    color:white;
 }
-.new-post-container form textarea{
+.new-post-container form div{
     width: 100%;
 }
 .new-post-container form .form-btn{
@@ -88,15 +80,22 @@ body{
    background: crimson;
    color:#fff;
 }
-/* mema p lng tlg design neto */
+
 </style>
 <body>
-    <div class="container">
-        <a href="user_page.php" class="btn">home</a>
-        <a href="logout.php" class="btn">logout</a>
-    </div>
+    <!-- nav bar -->
+<div class="header">
+   <ul class="navbar">
+      <?php if(!isset($userLoggedin) || empty($userLoggedin)){?>
+      <li><a href="login_form.php" class="btn">login</a></li>
+         <?php }else{ ?>
+      <li><a href="create_post.php">new post</a></li>
+      <li><a href="logout.php" >logout</a></li>
+      <?php } ?>
+   </ul>
+</div>
     <div class="new-post-container">
-        <h3>edit your post</h3>
+        <h3 style="color: #333">/</h3>
         <form action="" method="post">
             <?php
             if(isset($error)){
@@ -106,13 +105,12 @@ body{
             };
             ?>
             <input type="hidden" name="postID" value="<?php echo $result['postID']; ?>">
-            <input type="text" required name="title" id="" value="<?php echo $result['title']; ?>" placeholder="enter title" 
+            <div type="text" name="title" id="" placeholder="enter title" 
             style="
             width:100%; font-size: 1.5em; margin-top: 0.83em; margin-bottom: 0.83em; margin-left: 0;
-            margin-right: 0; font-weight: bold;" maxlength="50"><br>
-            <textarea name="content" id="edit_textarea" cols="30" rows="20" required placeholder="write a blog entry"><?php echo $result['content']; ?></textarea><br>
-            <button name="update_post" class="form-btn">save post</button>
-            <a href="user_page.php" class="form-btn">cancel</a>
+            margin-right: 0; font-weight: bold;" maxlength="50"><?php echo $result['title']; ?></div><br>
+            <div name="content" cols="30" rows="30"><?php echo $result['content']; ?></div><br>
+            <a href="user_page.php" class="form-btn">back</a>
         </form>
     </div>
 </body>
