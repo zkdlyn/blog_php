@@ -25,11 +25,3 @@ function autoResize() {
 }
 // End Automatic Resizing Textarea
 
-// time out ng alert msg
-document.addEventListener("DOMContentLoaded", function(){
-setTimeout(function() {
-   var alertMsg = document.getElementById('alert-msg');
-   if (alertMsg) {
-       alertMsg.style.display = 'none';
-   }
-}, 5000); });
