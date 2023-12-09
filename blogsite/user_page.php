@@ -152,6 +152,16 @@ hr.solid {
 <a href="#"><button class="topbtn" title="back to top"><i class='bx bx-chevron-up'></i></button></a>
 <!--  JS Link -->
 <script src="Script.js"></script>
+<script>
+// time out
+document.addEventListener("DOMContentLoaded", function(){
+setTimeout(function() {
+   var alertMsg = document.getElementById('alert-msg');
+   if (alertMsg) {
+       alertMsg.style.display = 'none';
+   }
+}, 5000); });
+</script>
 
 
 </body>
